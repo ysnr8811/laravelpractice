@@ -8,8 +8,10 @@ use Illuminate\Http\Response;
 class HelloController extends Controller
 {
   
-   public function index(Request $request, Response $response) {
-       return view('hello.index');
+   public function index(Request $request) {
+       $data = ['msg'=>'これはコントローラーから送られたメッセージです。',
+                'id' => $request->id];
+       return view('hello.index', $data);
    }
 
 }
